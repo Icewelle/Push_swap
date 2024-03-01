@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:22:58 by cluby             #+#    #+#             */
-/*   Updated: 2024/02/19 19:12:46 by cluby            ###   ########.fr       */
+/*   Updated: 2024/03/01 14:34:09 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(long));
 void	ft_lstclear(t_list **lst, void (*del)(long));
-void	ft_lstiter(t_list *lst, void (*f)(long));
+void	ft_lstiter(t_list *lst/* , void (*f)(long) */);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(int), void (*del)(int));
 int		ft_printf(const char *str, ...);
 int		ft_arg_c(char c);

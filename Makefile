@@ -1,18 +1,17 @@
 CC = cc
 CCFLAGS = -Wall -Werror -Wextra -Iincludes
 SRC =	push_swap.c\
-		check_error.c
+		check_error.c\
+		commands.c
 OBJ = $(SRC:.c=.o)
-NAME = push_swap.a
+NAME = push_swap
 LIBFT = libft
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@make -C $(LIBFT)
-	@cp libft/libft.a .
-	@mv libft.a $(NAME)
-	ar rcs  $@ $^
+	cc $(CCFLAGS) $(OBJ) -o push_swap ./libft/libft.a
 
 clean :
 	rm -f $(OBJ)

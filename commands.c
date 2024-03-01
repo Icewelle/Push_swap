@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   commands.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 18:42:41 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/01 17:59:07 by cluby            ###   ########.fr       */
+/*   Created: 2024/02/29 14:26:19 by cluby             #+#    #+#             */
+/*   Updated: 2024/03/01 18:10:37 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	sa(t_list *lst)
 {
-	t_list	*lst;
-	t_list	*node;
-	int		i;
+	long	temp;
+	
+	temp = lst->content;
+	lst->content = lst->next->content;
+	lst->next->content = temp;
+}
 
-	if (argc == 1)
-		return (0);
-	i = argc - 1;
-	lst = ft_lstnew(ft_atol(argv[i]));
-	while (i > 1)
-	{
-		node = ft_lstnew(ft_atol(argv[--i]));
-		ft_lstadd_front(&lst, node);
-	}
-	ft_lstiter(lst);
-	rra(&lst);
-	ft_lstiter(lst);
-	if (check_error(argc, argv, &lst))
-	{
-		write(2, "Error\n", 6);
-		return (0);
-	}
-	return (0);
+void	rra(t_list **lst)
+{
+	t_list	*test;
+
+	test = ft_lstnew(ft_lstlast(*lst)->content);
+	ft_lstadd_front(lst, test);
+	
 }
