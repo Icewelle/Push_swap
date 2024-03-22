@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:42:41 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/01 17:59:07 by cluby            ###   ########.fr       */
+/*   Updated: 2024/03/19 14:31:35 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,31 @@
 
 int	main(int argc, char *argv[])
 {
-	t_list	*lst;
+	t_list	*stacka;
+	t_list	*stackb;
 	t_list	*node;
 	int		i;
 
-	if (argc == 1)
+ 	if (argc == 1)
 		return (0);
 	i = argc - 1;
-	lst = ft_lstnew(ft_atol(argv[i]));
+	stacka = ft_lstnew(ft_atol(argv[i]));
 	while (i > 1)
 	{
 		node = ft_lstnew(ft_atol(argv[--i]));
-		ft_lstadd_front(&lst, node);
+		if (!node)
+			return (0);
+		ft_lstadd_front(&stacka, node);
 	}
-	ft_lstiter(lst);
-	rra(&lst);
-	ft_lstiter(lst);
-	if (check_error(argc, argv, &lst))
+	
+	if (check_error(argc, argv, &stacka))
 	{
 		write(2, "Error\n", 6);
 		return (0);
 	}
+	stackb = NULL;
+	
+	
+	//ft_lstclear(&lst, );
 	return (0);
 }

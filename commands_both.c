@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   commands.c                                         :+:      :+:    :+:   */
+/*   commands_both.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 14:26:19 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/01 18:10:37 by cluby            ###   ########.fr       */
+/*   Created: 2024/03/19 13:26:59 by cluby             #+#    #+#             */
+/*   Updated: 2024/03/19 13:32:05 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_list *lst)
+void	rrr(t_list **stacka, t_list **stackb)
 {
-	long	temp;
-	
-	temp = lst->content;
-	lst->content = lst->next->content;
-	lst->next->content = temp;
+	rra(stacka);
+	rrb(stackb);
 }
 
-void	rra(t_list **lst)
+void	ss(t_list **stacka, t_list **stackb)
 {
-	t_list	*test;
-
-	test = ft_lstnew(ft_lstlast(*lst)->content);
-	ft_lstadd_front(lst, test);
-	
+	sa(stacka);
+	sb(stackb);
 }

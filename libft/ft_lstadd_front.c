@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 01:48:52 by cluby             #+#    #+#             */
-/*   Updated: 2023/11/05 17:24:27 by cluby            ###   ########.fr       */
+/*   Updated: 2024/03/13 21:37:33 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst || new)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
+	new->next = *lst;
+	new->previous = (*lst)->previous;
+	(*lst)->previous = new;
+	new->previous->next = new;
+	
+	*lst = new;
 }
 
 /* int main()

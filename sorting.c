@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 23:30:07 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/09 18:16:42 by cluby            ###   ########.fr       */
+/*   Created: 2024/03/19 14:31:47 by cluby             #+#    #+#             */
+/*   Updated: 2024/03/19 14:32:38 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(long content)
+void	sorting(t_list **stacka, t_list **stackb)
 {
-	t_list *new;
-
-	new = (t_list *)malloc(sizeof(t_list));
-	if (!new)
-		return (new = NULL);
-	new->content = content;
-	new->previous = new;
-	new->next = new;
-	return (new);
+	
 }

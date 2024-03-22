@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:33:02 by cluby             #+#    #+#             */
-/*   Updated: 2024/02/19 18:55:50 by cluby            ###   ########.fr       */
+/*   Updated: 2024/03/13 21:55:57 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	check_int(int argc, char **argv)
 	while (argc-- > 1)
 	{
 		i = 0;
+		if (argv[argc][i] == '-')
+			i++;
 		while (argv[argc][i])
 		{
-			if (argv[argc][i] == '-')
-				i++;
 			if (!ft_isdigit(argv[argc][i]))
 				return (TRUE);
 			i++;
@@ -61,12 +61,14 @@ int	check_int_minmax(t_list *lst)
 	t_list	*temp;
 
 	temp = lst;
-	while (temp)
+	while (temp->next != lst)
 	{
 		if (temp->content > INT_MAX || temp->content < INT_MIN)
 			return (TRUE);
 		temp = temp->next;
 	}
+	if (temp->content > INT_MAX || temp->content < INT_MIN)
+		return (TRUE);
 	return (FALSE);
 }
 

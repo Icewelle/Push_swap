@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:22:58 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/01 14:34:09 by cluby            ###   ########.fr       */
+/*   Updated: 2024/03/09 15:53:12 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_list
 {
 	long			content;
 	struct s_list	*next;
+	struct s_list	*previous;
 }					t_list;
 
 int		ft_isalpha(int c);

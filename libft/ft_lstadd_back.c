@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 19:28:58 by cluby             #+#    #+#             */
-/*   Updated: 2023/11/22 12:27:21 by cluby            ###   ########.fr       */
+/*   Updated: 2024/03/09 15:54:31 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	temp = *lst;
 	temp = ft_lstlast(temp);
 	temp->next = new;
+	new->previous = temp;
 }
 
 /* int main()

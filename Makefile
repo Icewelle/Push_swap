@@ -2,7 +2,9 @@ CC = cc
 CCFLAGS = -Wall -Werror -Wextra -Iincludes
 SRC =	push_swap.c\
 		check_error.c\
-		commands.c
+		commands_a.c\
+		commands_b.c\
+		commands_both.c
 OBJ = $(SRC:.c=.o)
 NAME = push_swap
 LIBFT = libft
