@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 12:57:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/27 14:15:17 by cluby            ###   ########.fr       */
+/*   Created: 2024/03/27 12:45:33 by cluby             #+#    #+#             */
+/*   Updated: 2024/03/27 14:07:49 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstiter(t_list *lst /* , void (*f)(long) */ )
+void	free_stack(t_list **lst)
 {
-	t_list	*temp;
+	t_list	*tmp;
+	t_list  *first_node;
 
-	temp = lst;
+	first_node = *lst;
 	if (!lst)
-	{
-		printf("VIDE\n");
 		return ;
-	}
-	while (temp->next != lst)
+	while ((*lst)->next != first_node)
 	{
-		printf("%ld\n", temp->content);
-		temp = temp->next;
+		tmp = (*lst)->next;
+		(*lst)->content = 0;
+		free(*lst);
+		*lst = tmp;
 	}
-	printf("%ld\n", temp->content);
+	tmp = (*lst)->next;
+	(*lst)->content = 0;
+	free(*lst);
 }

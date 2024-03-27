@@ -6,39 +6,43 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:42:41 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/19 14:31:35 by cluby            ###   ########.fr       */
+/*   Updated: 2024/03/27 14:37:11 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+void	create_stack(int argc, char *argv[], t_list **stack)
 {
-	t_list	*stacka;
-	t_list	*stackb;
-	t_list	*node;
 	int		i;
+	t_list	*node;
 
- 	if (argc == 1)
-		return (0);
 	i = argc - 1;
-	stacka = ft_lstnew(ft_atol(argv[i]));
+	*stack = ft_lstnew(ft_atol(argv[i]));
 	while (i > 1)
 	{
 		node = ft_lstnew(ft_atol(argv[--i]));
 		if (!node)
-			return (0);
-		ft_lstadd_front(&stacka, node);
+			return;
+		ft_lstadd_front(stack, node);
 	}
-	
-	if (check_error(argc, argv, &stacka))
+}
+
+int	main(int argc, char *argv[])
+{
+	t_list	*stack_a;
+
+ 	if (argc == 1)
+		return (0);
+	create_stack(argc, argv, &stack_a);
+	if (check_error(argc, argv, &stack_a))
 	{
+		free_stack(&stack_a);
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	stackb = NULL;
-	
-	
-	//ft_lstclear(&lst, );
+	if (!check_sorted(stack_a))
+		sort(&stack_a);
+	free_stack(&stack_a);
 	return (0);
 }

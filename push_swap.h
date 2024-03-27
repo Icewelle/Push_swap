@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:48:44 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/19 13:34:36 by cluby            ###   ########.fr       */
+/*   Updated: 2024/03/27 13:26:25 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ void	rb(t_list **lst);
 void	pa(t_list **stackb, t_list **stacka);
 void	ss(t_list **stacka, t_list **stackb);
 void	rrr(t_list **stacka, t_list **stackb);
+int		check_sorted(t_list *stack_a);
+void	free_stack(t_list **lst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 19:33:02 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/13 21:55:57 by cluby            ###   ########.fr       */
+/*   Updated: 2024/03/27 14:26:49 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,27 @@ int	check_int_minmax(t_list *lst)
 	if (temp->content > INT_MAX || temp->content < INT_MIN)
 		return (TRUE);
 	return (FALSE);
+}
+
+int	check_sorted(t_list *stack_a)
+{
+	int		i;
+	t_list	*temp;
+
+	temp = stack_a;
+	i = temp->content;
+	while (temp->next != stack_a)
+	{
+		temp = temp->next;
+		if (i > temp->content)
+			return (FALSE);
+		i = temp->content;
+	}
+	temp = temp->next;
+	i = temp->content;
+	if (i > temp->content)
+			return (FALSE);
+	return (TRUE);
 }
 
 int	check_error(const int argc, char **argv, t_list **lst)
