@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:42:41 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/02 19:49:39 by cluby            ###   ########.fr       */
+/*   Updated: 2024/04/08 16:37:12 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	create_stack(int argc, char *argv[], t_list **stack)
 	{
 		node = ft_lstnew(ft_atol(argv[--i]));
 		if (!node)
-			return;
+			return ;
 		ft_lstadd_front(stack, node);
 	}
 }
@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 {
 	t_list	*stack_a;
 
- 	if (argc == 1)
+	if (argc == 1)
 		return (0);
 	create_stack(argc, argv, &stack_a);
 	if (check_error(argc, argv, &stack_a))

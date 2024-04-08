@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 12:45:33 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/27 14:07:49 by cluby            ###   ########.fr       */
+/*   Updated: 2024/04/08 16:45:05 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	free_stack(t_list **lst)
 {
 	t_list	*tmp;
-	t_list  *first_node;
+	t_list	*first_node;
 
 	first_node = *lst;
 	if (!lst)

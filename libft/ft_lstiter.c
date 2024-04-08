@@ -6,26 +6,26 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:57:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/03/27 14:15:17 by cluby            ###   ########.fr       */
+/*   Updated: 2024/04/08 16:46:21 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst /* , void (*f)(long) */ )
+void	ft_lstiter(t_list *lst)
 {
 	t_list	*temp;
 
 	temp = lst;
 	if (!lst)
 	{
-		printf("VIDE\n");
+		ft_printf("VIDE\n");
 		return ;
 	}
 	while (temp->next != lst)
 	{
-		printf("%ld\n", temp->content);
+		ft_printf("%ld\n", temp->content);
 		temp = temp->next;
 	}
-	printf("%ld\n", temp->content);
+	ft_printf("%ld\n", temp->content);
 }
