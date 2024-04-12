@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 18:42:41 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/08 16:37:12 by cluby            ###   ########.fr       */
+/*   Updated: 2024/04/08 18:38:44 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ int	main(int argc, char *argv[])
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	if (!check_sorted(stack_a))
-		sort(&stack_a);
+	printf("%d\n", ft_lstsize(stack_a));
+	/* if (!check_sorted(stack_a))
+		ft_sort(&stack_a); */
 	free_stack(&stack_a);
 	return (0);
 }

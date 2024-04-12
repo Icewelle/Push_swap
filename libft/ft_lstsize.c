@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 17:31:33 by cluby             #+#    #+#             */
-/*   Updated: 2023/11/22 12:27:57 by cluby            ###   ########.fr       */
+/*   Updated: 2024/04/08 19:17:10 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ int	ft_lstsize(t_list *lst)
 
 	count = 0;
 	temp = lst;
-	while (temp)
+	while (temp->next != lst)
 	{
 		temp = temp->next;
 		count++;
 	}
-	return (count);
+	return (count + 1);
 }
