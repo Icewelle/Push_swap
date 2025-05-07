@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   handle_args.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/25 17:05:01 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/06 15:34:51 by cluby            ###   ########.fr       */
+/*   Created: 2025/05/07 10:39:19 by cluby             #+#    #+#             */
+/*   Updated: 2025/05/07 13:12:14 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "handle_args.h"
 
-static void	push(t_stack **src, t_stack **dest)
+int	handle_args(int argc, char **argv)
 {
-	t_stack	*tmp;
-
-	if (*src == NULL)
-		return ;
-	tmp = (*src)->next;
-	(*src)->next = *dest;
-	*dest = *src;
-	*src = tmp;
-}
-
-void	pa(t_stack **stack_a, t_stack **stack_b)
-{
-	push(stack_b, stack_a);
-	ft_putstr("pa\n");
-}
-
-void	pb(t_stack **stack_a, t_stack **stack_b)
-{
-	push(stack_a, stack_b);
-	ft_putstr("pb\n");
+	if (argc < 2)
+		return (1);
+	argv++;
+	while (*argv)
+	{
+		if (ft_is_valid(*argv))
+			return (1);
+		argv++;
+	}
+	return (0);
 }

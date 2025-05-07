@@ -1,24 +1,14 @@
-
 MAKEFLAGS += --silent
-
-CFLAGS = -Wall -Werror -Wextra -I ./include/
-SRC =	src/cost.c\
-		src/initialization.c\
-		src/check_arg_utils.c\
-		src/check_arg.c\
-		src/justdoit.c\
-		src/utils.c\
-		src/main.c\
-		src/position.c\
-		src/push.c\
-		src/reverse_rotate.c\
-		src/rotate.c\
-		src/sort_tiny.c\
-		src/sort.c\
-		src/stack.c\
-		src/swap.c
-OBJ = $(SRC:.c=.o)
+C = cc
+CCFLAGS = -Wall -Werror -Wextra -g3 -I./headers
+SRCS =	main.c\
+		utils.c\
+		handle_args.c
+		
+OBJ = $(addprefix $(BIN_DIR)/,$(SRCS:.c=.o))
 NAME = push_swap
+SRCS_DIR = ./srcs
+BIN_DIR = ./bin
 
 # ------------------------------ Colors ------------------------------
 
@@ -38,11 +28,15 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@$(COMP_START)
-	cc $(CFLAGS) $(OBJ) -o push_swap
+	$(C) $(CCFLAGS) $(OBJ) -o $(NAME)
 	@$(COMP_END)
 
+$(BIN_DIR)/%.o: $(SRCS_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(C) $(CCFLAGS) -c $< -o $@
+
 clean :
-	rm -f $(OBJ)
+	rm -rf $(BIN_DIR)
 	@$(CLEANED)
 
 fclean : clean
