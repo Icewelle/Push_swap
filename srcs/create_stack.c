@@ -6,8 +6,15 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:00 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/07 11:28:22 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/09 13:42:21 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "stack.h"
+#include "utils.h"
 
+
+t_stack	*create_and_fill(char **argv)
+{
+	
+}

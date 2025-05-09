@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   list_utils.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/07 11:27:49 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/09 15:10:47 by cluby            ###   ########.fr       */
+/*   Created: 2025/05/09 14:50:44 by cluby             #+#    #+#             */
+/*   Updated: 2025/05/09 15:10:54 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef LIST_UTILS_H
+# define LIST_UTILS_H
 
-# include <unistd.h>
-# include <limits.h>
-
-typedef struct s_varatoi
-{
-	int	i;
-	int	number;
-	int	is_negative;
-	int	digit;
-}	t_varatoi;
-
-int	ft_is_valid(char *str);
-int	err(char *str);
-int	ft_atoi(const char *str);
+# include "stack.h"
 
 #endif
