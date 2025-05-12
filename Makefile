@@ -3,7 +3,10 @@ C = cc
 CCFLAGS = -Wall -Werror -Wextra -g3 -I./headers
 SRCS =	main.c\
 		utils.c\
-		handle_args.c
+		handle_args.c\
+		create_stack.c\
+		list_utils.c\
+		command_a.c
 		
 OBJ = $(addprefix $(BIN_DIR)/,$(SRCS:.c=.o))
 NAME = push_swap

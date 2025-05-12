@@ -6,34 +6,14 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:00:57 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/09 14:47:35 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/12 14:45:58 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "utils.h"
 
-static int	ft_is_number(char *str)
-{
-	if (!*str)
-		return (1);
-	while (*str)
-	{
-		if (((unsigned char)*str < 48 || (unsigned char)*str > 57))
-			return (1);
-		str++;
-	}
-	return (0);
-}
 
-int	ft_is_valid(char *str)
-{
-	while (((unsigned char)*str == '-' || (unsigned char)*str == '+') && *str)
-		str++;
-	if (ft_is_number(str))
-		return (1);
-	return (0);
-}
 
 int	err(char *str)
 {

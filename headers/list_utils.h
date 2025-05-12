@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:50:44 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/09 15:10:54 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/12 13:56:12 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 # define LIST_UTILS_H
 
 # include "stack.h"
+
+void	free_stack(t_stack	*stack);
 
 #endif
