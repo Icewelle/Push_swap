@@ -2,6 +2,15 @@
 	"files.associations": {
 		"push_swap.h": "c",
 		"utils.h": "c",
-		"stack.h": "c"
+		"stack.h": "c",
+		"optional": "c",
+		"ostream": "c",
+		"system_error": "c",
+		"array": "c",
+		"functional": "c",
+		"tuple": "c",
+		"type_traits": "c",
+		"utility": "c",
+		"little_sort.h": "c"
 	}
 }

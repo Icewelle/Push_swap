@@ -1,46 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   little_sort.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 14:50:16 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/20 12:57:00 by cluby            ###   ########.fr       */
+/*   Created: 2025/05/20 11:24:01 by cluby             #+#    #+#             */
+/*   Updated: 2025/05/20 12:59:23 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
-#include "list_utils.h"
+#ifndef LITTLE_SORT_H
+# define LITTLE_SORT_H
 
-void	free_stack(t_stack	*stack)
-{
-	t_stack	*tmp;
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
-	}
-}
+void	little_sort(t_stack **a);
+void	sort_three(t_stack **stack);
 
-void	free_both(t_stack **a, t_stack **b)
-{
-	free_stack(*a);
-	free_stack(*b);
-}
-
-int	lst_size(t_stack *stack)
-{
-	int	i;
-	t_stack *tmp;
-
-	i = 0;
-	tmp = stack;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		++i;
-	}
-	return (i);
-}
+#endif

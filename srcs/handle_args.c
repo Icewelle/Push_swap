@@ -6,12 +6,12 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:39:19 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/19 16:57:50 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/20 11:44:04 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "handle_args.h"
-#include <stdio.h>
+
 static int	ft_is_number(char *str)
 {
 	if (!*str)

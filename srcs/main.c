@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:30:56 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/20 11:04:36 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/20 12:57:43 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "handle_args.h"
 #include "stack.h"
 #include "list_utils.h"
+#include "little_sort.h"
 
 int	main(int argc, char **argv)
 {
@@ -27,7 +28,8 @@ int	main(int argc, char **argv)
 	if (create_and_fill(argv, &stack_a))
 		return (1);
 	//create_and_fill(argv, &stack_b);
-	pa(&stack_a, &stack_b, "pa\n");
+	//pa(&stack_a, &stack_b, "pa\n");
+	little_sort(&stack_a);
 	t_stack *tmp = stack_a;
 	while (tmp)
 	{
@@ -40,8 +42,7 @@ int	main(int argc, char **argv)
 		printf("b : %d\n", tmp->value);
 		tmp = tmp->next;
 	}
-	free_stack(stack_a);
-	free_stack(stack_b);
+	free_both(&stack_a, &stack_b);
 	/*
 	creer stack a
 	remplir stack a

@@ -6,11 +6,10 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:07:16 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/20 11:04:24 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/20 11:43:54 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "stack.h"
 
 void	sa(t_stack	**stack, char *str)
