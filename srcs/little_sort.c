@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:33 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/20 12:56:28 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/20 13:33:18 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,11 @@ void	sort_three(t_stack **stack)
 
 void	little_sort(t_stack **a)
 {
-	if (lst_size(*a) == 1)
-		return;
-	else if (lst_size(*a) == 2)
+    if (lst_size(*a) == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
 			sa(a, "sa\n");
-		return;
 	}
-	else if (lst_size(*a) > 3)
-		return;
-	sort_three(a);
+	else if (lst_size(*a) == 3)
+	    sort_three(a);
 }

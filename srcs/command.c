@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:07:16 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/20 11:43:54 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/20 14:03:10 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 void	sa(t_stack	**stack, char *str)
 {
 	t_stack	*tmp;
+
+	if (!*stack)
+		return;
 	tmp = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
 	tmp->next = *stack;
@@ -27,6 +30,8 @@ void	pa(t_stack **stack_a, t_stack **stack_b, char *str)
 {
 	t_stack	*tmp;
 
+	if (!*stack_a)
+		return;
 	tmp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	tmp->next = (*stack_b);
@@ -39,6 +44,8 @@ void	rra(t_stack	**stack, char *str)
 {
 	t_stack	*tmp;
 
+	if (!*stack)
+		return;
 	tmp = *stack;
 	while (tmp->next->next)
 	{
@@ -56,6 +63,8 @@ void	ra(t_stack **stack, char *str)
 	t_stack	*tmp;
 	t_stack	*tmp2;
 
+	if (!*stack)
+		return;
 	tmp = *stack;
 	tmp2 = *stack;
 	while (tmp2->next)
