@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:33 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/20 13:33:18 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/20 14:57:44 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 
 void	sort_three(t_stack **stack)
 {
-	int a = (*stack)->value;
-    int b = (*stack)->next->value;
-    int c = (*stack)->next->next->value;
-	
-	 if (a > b && b < c && a < c)
+	int a;
+    int b;
+    int c;
+
+    a = (*stack)->value;
+    b = (*stack)->next->value;
+    c = (*stack)->next->next->value;
+	if (a > b && b < c && a < c)
         sa(stack, "sa\n");
     else if (a > b && b > c)
     {
@@ -38,7 +41,14 @@ void	sort_three(t_stack **stack)
         rra(stack, "rra\n");
 }
 
-void	little_sort(t_stack **a)
+void    sort_five(t_stack **a, t_stack **b)
+{
+    pa(a, b, "pa\n");
+    pa(a, b, "pa\n");
+    sort_three(a);
+}
+
+void	little_sort(t_stack **a, t_stack **b)
 {
     if (lst_size(*a) == 2)
 	{
@@ -47,4 +57,6 @@ void	little_sort(t_stack **a)
 	}
 	else if (lst_size(*a) == 3)
 	    sort_three(a);
+    else if (lst_size(*a) == 5)
+        sort_five(a, b);
 }

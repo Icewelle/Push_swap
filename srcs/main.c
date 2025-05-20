@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:30:56 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/20 12:57:43 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/20 14:51:20 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (create_and_fill(argv, &stack_a))
 		return (1);
-	//create_and_fill(argv, &stack_b);
-	//pa(&stack_a, &stack_b, "pa\n");
-	little_sort(&stack_a);
+	little_sort(&stack_a, &stack_b);
 	t_stack *tmp = stack_a;
 	while (tmp)
 	{
