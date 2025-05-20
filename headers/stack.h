@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:36:24 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/12 17:35:27 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/20 10:55:39 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ typedef struct s_stack
 }	t_stack;
 
 int		create_and_fill(char **argv, t_stack **stack);
-void	sa(t_stack	**stack);
-void	pa(t_stack **stack_a, t_stack **stack_b);
-void	ra(t_stack **stack);
-void	rra(t_stack	**stack);
+void	sa(t_stack	**stack, char *str);
+void	pa(t_stack **stack_a, t_stack **stack_b, char *str);
+void	ra(t_stack **stack, char *str);
+void	rra(t_stack	**stack, char *str);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

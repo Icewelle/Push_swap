@@ -1,47 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command_a.c                                        :+:      :+:    :+:   */
+/*   command.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 14:07:16 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/12 17:34:52 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/20 11:04:24 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "stack.h"
 
-void	sa(t_stack	**stack)
+void	sa(t_stack	**stack, char *str)
 {
 	t_stack	*tmp;
-	printf("1: %p\n2: %p\n", (*stack), (*stack)->next);
 	tmp = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
 	tmp->next = *stack;
 	*stack = tmp;
-	write(1, "sa\n", 3);
-	printf("1: %p\n2: %p\n\n", (*stack), (*stack)->next);
+	while (*str)
+		write(1, str++, 1);
 }
 
-void	pa(t_stack **stack_a, t_stack **stack_b)
+void	pa(t_stack **stack_a, t_stack **stack_b, char *str)
 {
 	t_stack	*tmp;
 
-	printf("a: %p\nb: %p\n", (*stack_a), (*stack_b));
-	if (*stack_b == NULL)
-    	return;
 	tmp = *stack_a;
 	*stack_a = (*stack_a)->next;
 	tmp->next = (*stack_b);
 	*stack_b = tmp;
-	write(1, "pa\n", 3);
-	printf("a: %p\nb: %p\n\n", (*stack_a), (*stack_b));
-
+	while (*str)
+		write(1, str++, 1);
 }
 
-void	rra(t_stack	**stack)
+void	rra(t_stack	**stack, char *str)
 {
 	t_stack	*tmp;
 
@@ -50,22 +45,25 @@ void	rra(t_stack	**stack)
 	{
 		tmp = tmp->next;
 	}
-	printf("1: %p\nlast: %p\n", (*stack), tmp->next);
 	tmp->next->next = (*stack);
 	*stack = tmp->next;
 	tmp->next = NULL;
-	write(1, "rra\n", 4);
-	printf("1: %p\n2: %p\n\n", (*stack), (*stack)->next);
+	while (*str)
+		write(1, str++, 1);
 }
 
-void	ra(t_stack **stack)
+void	ra(t_stack **stack, char *str)
 {
 	t_stack	*tmp;
+	t_stack	*tmp2;
 
 	tmp = *stack;
-	while ((*stack)->next)
-	{
-		(*stack) = (*stack)->next;
-	}
-	printf("1: %p\n2: %p\n\n", tmp, (*stack));
+	tmp2 = *stack;
+	while (tmp2->next)
+		tmp2 = tmp2->next;
+	*stack = tmp->next;
+	tmp->next = NULL;
+	tmp2->next = tmp;
+	while (*str)
+		write(1, str++, 1);
 }

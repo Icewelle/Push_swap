@@ -6,12 +6,12 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:39:19 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/12 14:46:10 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/19 16:57:50 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "handle_args.h"
-
+#include <stdio.h>
 static int	ft_is_number(char *str)
 {
 	if (!*str)
@@ -28,22 +28,45 @@ static int	ft_is_number(char *str)
 static int	ft_is_valid(char *str)
 {
 	while (((unsigned char)*str == '-' || (unsigned char)*str == '+') && *str)
-		str++;
+	str++;
 	if (ft_is_number(str))
-		return (1);
+	return (1);
+	return (0);
+}
+
+static int	ft_is_double(char **str)
+{
+	int	i;
+
+	while (*str)
+	{
+		i = 1;
+		while (str[i])
+		{
+			if (ft_atoi(str[i]) == ft_atoi(*str))
+			return (1);
+			++i;
+		}
+		++str;
+	}
 	return (0);
 }
 
 int	handle_args(int argc, char **argv)
 {
+	char **clone;
+
 	if (argc < 2)
-		return (1);
+	return (1);
 	argv++;
+	clone = argv;
 	while (*argv)
 	{
 		if (ft_is_valid(*argv))
-			return (1);
+			return (err("Error\n"));
 		argv++;
 	}
+	if (ft_is_double(clone))
+		return (err("Error\n"));
 	return (0);
 }

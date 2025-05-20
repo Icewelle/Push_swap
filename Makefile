@@ -6,7 +6,8 @@ SRCS =	main.c\
 		handle_args.c\
 		create_stack.c\
 		list_utils.c\
-		command_a.c
+		command.c\
+		double_command.c
 		
 OBJ = $(addprefix $(BIN_DIR)/,$(SRCS:.c=.o))
 NAME = push_swap
