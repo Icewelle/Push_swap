@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:33 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/20 14:57:44 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/23 14:03:36 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,49 @@ void	sort_three(t_stack **stack)
         rra(stack, "rra\n");
 }
 
+void    insert_into_a(t_stack **a, t_stack **b)
+{
+    int i;
+
+    i = 0;
+    if ((*b)->value < (*a)->value)
+        pa(b, a, "pa\n");
+    else if ((*b)->value > lst_last((*a))->value)
+    {
+        pa(b, a, "pa\n");
+        ra(a, "ra\n");
+    }
+    else if ((*b)->next &&  ((*b)->next->value < (*a)->value))
+    {
+        sa(b, "sb\n");
+        pa(b, a, "pa\n");
+    }
+    else if ((*b)->next && ((*b)->next->value > lst_last((*a))->value))
+    {
+        sa(b, "sb\n");
+        pa(b, a, "pa\n");
+        ra(a, "ra\n");
+    }
+    else
+    {
+        while ((*b)->value > (*a)->value)
+        {
+            ra(a, "ra\n");
+            ++i;
+        }
+        pa(b, a, "pa\n");
+        while (i--)
+            rra(a, "rra\n");
+    }
+}
+
 void    sort_five(t_stack **a, t_stack **b)
 {
-    pa(a, b, "pa\n");
-    pa(a, b, "pa\n");
+    pa(a, b, "pb\n");
+    pa(a, b, "pb\n");
     sort_three(a);
+    insert_into_a(a, b);
+    insert_into_a(a, b);
 }
 
 void	little_sort(t_stack **a, t_stack **b)

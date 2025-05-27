@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:50:16 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/20 12:57:00 by cluby            ###   ########.fr       */
+/*   Updated: 2025/05/23 13:14:05 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,16 @@ int	lst_size(t_stack *stack)
 		++i;
 	}
 	return (i);
+}
+
+t_stack	*lst_last(t_stack *stack)
+{
+	while (stack && stack->next)
+        stack = stack->next;
+    return stack;
+}
+
+void	put_index(t_stack **stack)
+{
+	(void)stack;
 }

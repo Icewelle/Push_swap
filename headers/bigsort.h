@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.h                                       :+:      :+:    :+:   */
+/*   bigsort.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 14:50:44 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/23 13:12:59 by cluby            ###   ########.fr       */
+/*   Created: 2025/05/23 12:00:17 by cluby             #+#    #+#             */
+/*   Updated: 2025/05/23 12:02:51 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_UTILS_H
-# define LIST_UTILS_H
+#ifndef BIGSORT_HPP
+# define BIGSORT_HPP
 
-# include "stack.h"
-# include <limits.h>
+#include "stack.h"
+#include "list_utils.h"
 
-void	free_stack(t_stack	*stack);
-int		lst_size(t_stack *stack);
-void	free_both(t_stack **a, t_stack **b);
-void	put_index(t_stack **stack);
-t_stack	*lst_last(t_stack *stack);
+void	big_sort(t_stack **stack_a, t_stack **stack_b);
 
 #endif
