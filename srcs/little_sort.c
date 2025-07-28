@@ -14,11 +14,13 @@
 #include "list_utils.h"
 #include "little_sort.h"
 
+#include <stdio.h>
+
 void	sort_three(t_stack **stack)
 {
 	int a;
-    int b;
-    int c;
+	int b;
+	int c;
 
     a = (*stack)->value;
     b = (*stack)->next->value;
@@ -43,38 +45,7 @@ void	sort_three(t_stack **stack)
 
 void    insert_into_a(t_stack **a, t_stack **b)
 {
-    int i;
-
-    i = 0;
-    if ((*b)->value < (*a)->value)
-        pa(b, a, "pa\n");
-    else if ((*b)->value > lst_last((*a))->value)
-    {
-        pa(b, a, "pa\n");
-        ra(a, "ra\n");
-    }
-    else if ((*b)->next &&  ((*b)->next->value < (*a)->value))
-    {
-        sa(b, "sb\n");
-        pa(b, a, "pa\n");
-    }
-    else if ((*b)->next && ((*b)->next->value > lst_last((*a))->value))
-    {
-        sa(b, "sb\n");
-        pa(b, a, "pa\n");
-        ra(a, "ra\n");
-    }
-    else
-    {
-        while ((*b)->value > (*a)->value)
-        {
-            ra(a, "ra\n");
-            ++i;
-        }
-        pa(b, a, "pa\n");
-        while (i--)
-            rra(a, "rra\n");
-    }
+   
 }
 
 void    sort_five(t_stack **a, t_stack **b)
@@ -88,13 +59,13 @@ void    sort_five(t_stack **a, t_stack **b)
 
 void	little_sort(t_stack **a, t_stack **b)
 {
-    if (lst_size(*a) == 2)
+	if (lst_size(*a) == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
 			sa(a, "sa\n");
 	}
 	else if (lst_size(*a) == 3)
-	    sort_three(a);
-    else if (lst_size(*a) == 5)
-        sort_five(a, b);
+		sort_three(a);
+	else if (lst_size(*a) == 5)
+		sort_five(a, b);
 }

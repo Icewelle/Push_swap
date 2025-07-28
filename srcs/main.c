@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (create_and_fill(argv, &stack_a))
 		return (1);
+	put_index(&stack_a);
 	little_sort(&stack_a, &stack_b);
 	//big_sort(&stack_a, &stack_a);
 	/* t_stack *tmp = stack_a;

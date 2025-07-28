@@ -13,6 +13,8 @@
 #include "stack.h"
 #include "list_utils.h"
 
+#include <stdio.h>
+
 void	free_stack(t_stack	*stack)
 {
 	t_stack	*tmp;
@@ -30,7 +32,7 @@ void	free_both(t_stack **a, t_stack **b)
 	free_stack(*b);
 }
 
-int	lst_size(t_stack *stack)
+size_t	lst_size(t_stack *stack)
 {
 	int	i;
 	t_stack *tmp;
@@ -54,5 +56,5 @@ t_stack	*lst_last(t_stack *stack)
 
 void	put_index(t_stack **stack)
 {
-	(void)stack;
+	
 }
