@@ -2,14 +2,15 @@ MAKEFLAGS += --silent
 C = cc
 CCFLAGS = -Wall -Werror -Wextra -g3 -I./headers
 SRCS =	main.c\
-		utils.c\
-		handle_args.c\
-		create_stack.c\
-		list_utils.c\
-		command.c\
-		double_command.c\
-		little_sort.c\
-		big_sort.c
+		utils/utils.c\
+		utils/handle_args.c\
+		utils/create_stack.c\
+		utils/list_utils.c\
+		utils/index_utils.c\
+		commands/command.c\
+		commands/double_command.c\
+		algo/little_sort.c\
+		algo/big_sort.c
 		
 OBJ = $(addprefix $(BIN_DIR)/,$(SRCS:.c=.o))
 NAME = push_swap

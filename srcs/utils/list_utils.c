@@ -54,7 +54,3 @@ t_stack	*lst_last(t_stack *stack)
     return stack;
 }
 
-void	put_index(t_stack **stack)
-{
-	
-}

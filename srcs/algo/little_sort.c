@@ -43,18 +43,18 @@ void	sort_three(t_stack **stack)
         rra(stack, "rra\n");
 }
 
-void    insert_into_a(t_stack **a, t_stack **b)
+/* void    insert_into_a(t_stack **a, t_stack **b)
 {
    
-}
+} */
 
 void    sort_five(t_stack **a, t_stack **b)
 {
     pa(a, b, "pb\n");
     pa(a, b, "pb\n");
     sort_three(a);
-    insert_into_a(a, b);
-    insert_into_a(a, b);
+    /* insert_into_a(a, b);
+    insert_into_a(a, b); */
 }
 
 void	little_sort(t_stack **a, t_stack **b)
