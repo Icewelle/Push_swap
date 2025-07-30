@@ -6,14 +6,12 @@
 /*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 07:05:08 by icewell           #+#    #+#             */
-/*   Updated: 2025/07/29 08:16:13 by icewell          ###   ########.fr       */
+/*   Updated: 2025/07/30 10:22:58 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "list_utils.h"
-
-#include <stdio.h>
 
 size_t	find_min(t_stack **stack)
 {
@@ -70,6 +68,5 @@ void	put_index(t_stack **stack)
 		}
 		tmp = *stack;
 		min_node->index = i++;
-		printf("value = %d, index = %ld\n", min_node->value, min_node->index);
 	}
 }

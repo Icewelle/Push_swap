@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   little_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
+/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:33 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/23 14:03:36 by cluby            ###   ########.fr       */
+/*   Updated: 2025/07/30 10:37:37 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,24 @@ void	sort_three(t_stack **stack)
         rra(stack, "rra\n");
 }
 
-/* void    insert_into_a(t_stack **a, t_stack **b)
-{
-   
-} */
-
 void    sort_five(t_stack **a, t_stack **b)
 {
-    pa(a, b, "pb\n");
-    pa(a, b, "pb\n");
-    sort_three(a);
-    /* insert_into_a(a, b);
-    insert_into_a(a, b); */
+	int	i;
+	
+	i = 2;
+	while (i--)
+	{
+		while ((*a)->index != 1 && (*a)->index != 2)
+		{
+			ra(a, "ra\n");
+		}
+		pa(a, b, "pb\n");
+	}
+	sort_three(a);
+	pa(b, a, "pa\n");
+	pa(b, a, "pa\n");
+	if ((*a)->index > (*a)->next->index)
+		sa(a, "sa\n");
 }
 
 void	little_sort(t_stack **a, t_stack **b)
