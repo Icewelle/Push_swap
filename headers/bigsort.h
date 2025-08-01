@@ -1,20 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bigsort.hpp                                        :+:      :+:    :+:   */
+/*   bigsort.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
+/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 12:00:17 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/23 12:02:51 by cluby            ###   ########.fr       */
+/*   Updated: 2025/08/01 12:01:31 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BIGSORT_HPP
 # define BIGSORT_HPP
-
-#include "stack.h"
-#include "list_utils.h"
 
 void	big_sort(t_stack **stack_a, t_stack **stack_b);
 

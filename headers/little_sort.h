@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   little_sort.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
+/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:24:01 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/20 14:51:10 by cluby            ###   ########.fr       */
+/*   Updated: 2025/08/01 12:01:06 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LITTLE_SORT_H
 # define LITTLE_SORT_H
 
-void	little_sort(t_stack **a, t_stack **b);
+int		little_sort(t_stack **a, t_stack **b);
 void	sort_three(t_stack **stack);
 
 #endif

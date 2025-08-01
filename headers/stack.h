@@ -6,7 +6,7 @@
 /*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:36:24 by cluby             #+#    #+#             */
-/*   Updated: 2025/07/29 08:01:17 by icewell          ###   ########.fr       */
+/*   Updated: 2025/08/01 11:04:32 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,20 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+typedef enum
+{
+	start,
+	min,
+	mid,
+	max
+} ranges;
+
 typedef struct s_stack
 {
 	int				value;
 	size_t			index;
 	struct s_stack	*next;
+	ranges			range;
 }	t_stack;
 
 int		create_and_fill(char **argv, t_stack **stack);

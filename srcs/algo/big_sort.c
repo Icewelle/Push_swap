@@ -3,23 +3,71 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
+/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:35 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/23 13:53:51 by cluby            ###   ########.fr       */
+/*   Updated: 2025/08/01 12:40:32 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "stack.h"
+#include "list_utils.h"
 #include "bigsort.h"
+#include "little_sort.h"
 
-void	big_sort(t_stack **stack_a, t_stack **stack_b)
+#include <stdio.h>
+
+static int put_range(t_stack **stack)
 {
-	//put_index(stack_a);
-	(void)stack_a;
-	(void)stack_b;
-	//0 put index
-	//1 claculate range
-	//2 calculate move
-	//3 do moves
-	//4 repeat 2 & 3
+	t_stack	*tmp;
+	size_t	max_range;
+	size_t	mid_range;
+
+	tmp = *stack;
+	mid_range = (lst_size(tmp) / 3);
+	max_range = (lst_size(tmp) / 3 * 2);
+	while (tmp)
+	{
+		if (tmp->index > max_range)
+			tmp->range = max;
+		else if (tmp->index > mid_range)
+			tmp->range = mid;
+		else
+			tmp->range = min;
+		tmp = tmp->next;
+	}
+	return (mid_range);
+}
+
+void	big_sort(t_stack **a, t_stack **b)
+{
+	int	min_c;
+	int	mid_c;
+	int	moves;
+
+	moves = put_range(a);
+	min_c = 0;
+	mid_c = 0;
+	if (lst_size((*a)) <= 3)
+	{
+		little_sort(a, b);
+		return;
+	}
+	while (min_c != moves || mid_c != moves)
+	{	
+		if ((*a)->range == min)
+		{
+			pa(a, b, "pb\n");
+			if (lst_size((*b)) > 1)
+				ra(b, "rb\n");
+			++min_c;
+		}
+		else if ((*a)->range == mid)
+		{
+			pa(a, b, "pb\n");
+			++mid_c;
+		}
+		else
+			ra(a, "ra\n");
+	}
 }

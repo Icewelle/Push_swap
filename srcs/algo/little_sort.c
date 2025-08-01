@@ -6,15 +6,13 @@
 /*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:33 by cluby             #+#    #+#             */
-/*   Updated: 2025/07/30 10:37:37 by icewell          ###   ########.fr       */
+/*   Updated: 2025/08/01 12:11:43 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "list_utils.h"
 #include "little_sort.h"
-
-#include <stdio.h>
 
 void	sort_three(t_stack **stack)
 {
@@ -63,15 +61,23 @@ void    sort_five(t_stack **a, t_stack **b)
 		sa(a, "sa\n");
 }
 
-void	little_sort(t_stack **a, t_stack **b)
+int	little_sort(t_stack **a, t_stack **b)
 {
 	if (lst_size(*a) == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
-			sa(a, "sa\n");
+		sa(a, "sa\n");
+		return (0);
 	}
 	else if (lst_size(*a) == 3)
+	{
 		sort_three(a);
+		return (0);
+	}
 	else if (lst_size(*a) == 5)
+	{
 		sort_five(a, b);
+		return (0);
+	}
+	return (1);
 }

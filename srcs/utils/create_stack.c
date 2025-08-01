@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
+/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:00 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/23 14:24:02 by cluby            ###   ########.fr       */
+/*   Updated: 2025/08/01 11:04:17 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_stack	*create_node(int val)
 		return (err("Error\n"), NULL);
 	new->value = val;
 	new->index = 0;
+	new->range = start;
 	new->next = NULL;
 	return (new);
 }

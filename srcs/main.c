@@ -6,7 +6,7 @@
 /*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:30:56 by cluby             #+#    #+#             */
-/*   Updated: 2025/07/29 07:15:36 by icewell          ###   ########.fr       */
+/*   Updated: 2025/08/01 12:30:16 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,20 @@ int	main(int argc, char **argv)
 	if (create_and_fill(argv, &stack_a))
 		return (1);
 	put_index(&stack_a);
-	little_sort(&stack_a, &stack_b);
-	//big_sort(&stack_a, &stack_a);
-	/* t_stack *tmp = stack_a;
+	if (little_sort(&stack_a, &stack_b))
+		big_sort(&stack_a, &stack_b);
+	t_stack *tmp = stack_a;
 	while (tmp)
 	{
-		printf("a : %d | index : %d\n", tmp->value, tmp->index);
+		printf("a : %d | index : %ld | range : %d\n", tmp->value, tmp->index, tmp->range);
 		tmp = tmp->next;
 	}
+	printf("\n");
 	tmp = stack_b;
 	while (tmp)
 	{
-		printf("b : %d\n", tmp->value);
+		printf("b : %d | index : %ld | range : %d\n", tmp->value, tmp->index, tmp->range);
 		tmp = tmp->next;
-	} */
+	}
 	free_both(&stack_a, &stack_b);
-	/*
-	creer stack a
-	remplir stack a
-	voir si stack a peut deja etre trier
-		creer stack b si besoin
-	trier tout
-	resultat*/
 }

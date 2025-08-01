@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
+/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:50:16 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/23 13:14:05 by cluby            ###   ########.fr       */
+/*   Updated: 2025/07/31 11:20:40 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "list_utils.h"
-
-#include <stdio.h>
 
 void	free_stack(t_stack	*stack)
 {
@@ -53,4 +51,3 @@ t_stack	*lst_last(t_stack *stack)
         stack = stack->next;
     return stack;
 }
-
