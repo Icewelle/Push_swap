@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 14:50:16 by cluby             #+#    #+#             */
-/*   Updated: 2025/07/31 11:20:40 by icewell          ###   ########.fr       */
+/*   Updated: 2025/10/22 22:56:12 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 void	free_stack(t_stack	*stack)
 {
 	t_stack	*tmp;
+
 	while (stack)
 	{
 		tmp = stack;
@@ -32,8 +33,8 @@ void	free_both(t_stack **a, t_stack **b)
 
 size_t	lst_size(t_stack *stack)
 {
-	int	i;
-	t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
 	i = 0;
 	tmp = stack;
@@ -48,6 +49,6 @@ size_t	lst_size(t_stack *stack)
 t_stack	*lst_last(t_stack *stack)
 {
 	while (stack && stack->next)
-        stack = stack->next;
-    return stack;
+		stack = stack->next;
+	return (stack);
 }

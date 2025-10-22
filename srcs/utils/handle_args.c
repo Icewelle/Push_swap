@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:39:19 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/23 13:58:34 by cluby            ###   ########.fr       */
+/*   Updated: 2025/10/22 23:05:45 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static int	ft_is_number(char *str)
 static int	ft_is_valid(char *str)
 {
 	while (((unsigned char)*str == '-' || (unsigned char)*str == '+') && *str)
-	str++;
+		str++;
 	if (ft_is_number(str))
-	return (1);
+		return (1);
 	return (0);
 }
 
@@ -44,7 +44,7 @@ static int	ft_is_double(char **str)
 		while (str[i])
 		{
 			if (ft_atoi(str[i]) == ft_atoi(*str))
-			return (1);
+				return (1);
 			++i;
 		}
 		++str;
@@ -54,10 +54,10 @@ static int	ft_is_double(char **str)
 
 int	handle_args(int argc, char **argv)
 {
-	char **clone;
+	char	**clone;
 
 	if (argc < 2)
-	return (1);
+		return (1);
 	argv++;
 	clone = argv;
 	while (*argv)

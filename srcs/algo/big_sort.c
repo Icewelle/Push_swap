@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:35 by cluby             #+#    #+#             */
-/*   Updated: 2025/08/01 12:40:32 by icewell          ###   ########.fr       */
+/*   Updated: 2025/10/22 23:00:54 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include <stdio.h>
 
-static int put_range(t_stack **stack)
+static int	put_range(t_stack **stack)
 {
 	t_stack	*tmp;
 	size_t	max_range;
@@ -39,7 +39,7 @@ static int put_range(t_stack **stack)
 	return (mid_range);
 }
 
-void	big_sort(t_stack **a, t_stack **b)
+static void	move_groups(t_stack **a, t_stack **b)
 {
 	int	min_c;
 	int	mid_c;
@@ -48,13 +48,8 @@ void	big_sort(t_stack **a, t_stack **b)
 	moves = put_range(a);
 	min_c = 0;
 	mid_c = 0;
-	if (lst_size((*a)) <= 3)
-	{
-		little_sort(a, b);
-		return;
-	}
 	while (min_c != moves || mid_c != moves)
-	{	
+	{
 		if ((*a)->range == min)
 		{
 			pa(a, b, "pb\n");
@@ -70,4 +65,15 @@ void	big_sort(t_stack **a, t_stack **b)
 		else
 			ra(a, "ra\n");
 	}
+}
+
+void	big_sort(t_stack **a, t_stack **b)
+{
+	moveGroups(a, b);
+	if (lst_size((*a)) <= 3)
+	{
+		little_sort(a, b);
+		return ;
+	}
+	//big_sort((a), (b));
 }

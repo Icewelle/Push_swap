@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:00 by cluby             #+#    #+#             */
-/*   Updated: 2025/08/01 11:04:17 by icewell          ###   ########.fr       */
+/*   Updated: 2025/10/22 23:04:53 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 
 t_stack	*create_node(int val)
 {
-	t_stack	*new = malloc(sizeof(t_stack));
+	t_stack	*new;
+
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (err("Error\n"), NULL);
 	new->value = val;
@@ -28,21 +30,21 @@ t_stack	*create_node(int val)
 
 static int	insert_end(int val, t_stack **stack)
 {
-	t_stack *new;
+	t_stack	*new;
 	t_stack	*tmp;
 
 	new = create_node(val);
-    if (!new)
-        return (1);
-    if (!*stack)
-    {
-        *stack = new;
-        return (0);
-    }
-    tmp = *stack;
-    while (tmp->next)
-        tmp = tmp->next;
-    tmp->next = new;
+	if (!new)
+		return (1);
+	if (!*stack)
+	{
+		*stack = new;
+		return (0);
+	}
+	tmp = *stack;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
 	return (0);
 }
 

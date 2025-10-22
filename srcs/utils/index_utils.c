@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 07:05:08 by icewell           #+#    #+#             */
-/*   Updated: 2025/07/30 10:22:58 by icewell          ###   ########.fr       */
+/*   Updated: 2025/10/22 23:08:00 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	put_index(t_stack **stack)
 	t_stack	*tmp;
 	t_stack	*min_node;
 	size_t	i;
-	int 	min_val;
-	
+	int		min_val;
+
 	i = 1;
 	tmp = *stack;
 	while (i <= lst_size(tmp))
@@ -59,7 +59,8 @@ void	put_index(t_stack **stack)
 		min_val = INT_MAX;
 		while (tmp)
 		{
-			if ((tmp->value < min_val || (tmp->value == INT_MAX && i == lst_size(*stack))) && tmp->index == 0)
+			if ((tmp->value < min_val || (tmp->value == INT_MAX \
+				&& i == lst_size(*stack))) && tmp->index == 0)
 			{
 				min_val = tmp->value;
 				min_node = tmp;

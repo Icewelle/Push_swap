@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   little_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:33 by cluby             #+#    #+#             */
-/*   Updated: 2025/08/01 12:11:43 by icewell          ###   ########.fr       */
+/*   Updated: 2025/10/22 23:02:13 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,35 @@
 
 void	sort_three(t_stack **stack)
 {
-	int a;
-	int b;
-	int c;
+	int	a;
+	int	b;
+	int	c;
 
-    a = (*stack)->value;
-    b = (*stack)->next->value;
-    c = (*stack)->next->next->value;
+	a = (*stack)->value;
+	b = (*stack)->next->value;
+	c = (*stack)->next->next->value;
 	if (a > b && b < c && a < c)
-        sa(stack, "sa\n");
-    else if (a > b && b > c)
-    {
-        sa(stack, "sa\n");
-        rra(stack, "rra\n");
-    }
-    else if (a > b && b < c && a > c)
-        ra(stack, "ra\n");
-    else if (a < b && b > c && a < c)
-    {
-        sa(stack, "sa\n");
-        ra(stack, "ra\n");
-    }
-    else if (a < b && b > c && a > c)
-        rra(stack, "rra\n");
+		sa(stack, "sa\n");
+	else if (a > b && b > c)
+	{
+		sa(stack, "sa\n");
+		rra(stack, "rra\n");
+	}
+	else if (a > b && b < c && a > c)
+		ra(stack, "ra\n");
+	else if (a < b && b > c && a < c)
+	{
+		sa(stack, "sa\n");
+		ra(stack, "ra\n");
+	}
+	else if (a < b && b > c && a > c)
+		rra(stack, "rra\n");
 }
 
-void    sort_five(t_stack **a, t_stack **b)
+void	sort_five(t_stack **a, t_stack **b)
 {
 	int	i;
-	
+
 	i = 2;
 	while (i--)
 	{
@@ -66,7 +66,7 @@ int	little_sort(t_stack **a, t_stack **b)
 	if (lst_size(*a) == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
-		sa(a, "sa\n");
+			sa(a, "sa\n");
 		return (0);
 	}
 	else if (lst_size(*a) == 3)
