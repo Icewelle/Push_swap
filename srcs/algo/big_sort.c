@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:35 by cluby             #+#    #+#             */
-/*   Updated: 2025/10/22 23:00:54 by cluby            ###   ########.fr       */
+/*   Updated: 2025/10/23 00:32:06 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ static int	put_range(t_stack **stack)
 	tmp = *stack;
 	mid_range = (lst_size(tmp) / 3);
 	max_range = (lst_size(tmp) / 3 * 2);
+	clean_index(stack);
+	put_index(stack);
 	while (tmp)
 	{
 		if (tmp->index > max_range)
@@ -69,11 +71,21 @@ static void	move_groups(t_stack **a, t_stack **b)
 
 void	big_sort(t_stack **a, t_stack **b)
 {
-	moveGroups(a, b);
-	if (lst_size((*a)) <= 3)
+	t_stack	*tmp;
+
+	while (lst_size((*a)) > 3)
+		move_groups(a, b);
+	little_sort(a, b);
+	tmp = *b;
+/* 	while (tmp)
 	{
-		little_sort(a, b);
-		return ;
-	}
-	//big_sort((a), (b));
+		if (tmp->value > (*a)->value)
+		{
+			pa(b, a, "pa\n");
+			ra(a, "ra\n");
+		}
+		else
+			pa(b, a, "pa\n");
+		tmp = tmp->next;
+	}	 */
 }

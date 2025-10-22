@@ -6,12 +6,24 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 07:05:08 by icewell           #+#    #+#             */
-/*   Updated: 2025/10/22 23:08:00 by cluby            ###   ########.fr       */
+/*   Updated: 2025/10/23 00:04:30 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "list_utils.h"
+
+void	clean_index(t_stack	**stack)
+{
+	t_stack	*tmp;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		tmp->index = 0;
+		tmp = tmp->next;
+	}
+}
 
 size_t	find_min(t_stack **stack)
 {
@@ -54,6 +66,7 @@ void	put_index(t_stack **stack)
 
 	i = 1;
 	tmp = *stack;
+	min_node = tmp;
 	while (i <= lst_size(tmp))
 	{
 		min_val = INT_MAX;
