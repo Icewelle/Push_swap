@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:36:24 by cluby             #+#    #+#             */
-/*   Updated: 2025/08/01 11:04:32 by icewell          ###   ########.fr       */
+/*   Updated: 2025/10/23 20:54:25 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,20 @@ typedef enum
 	min,
 	mid,
 	max
-} ranges;
+} order;
+
+typedef struct s_groups
+{
+	int		group;
+	order	order;
+}	t_groups;
 
 typedef struct s_stack
 {
 	int				value;
 	size_t			index;
 	struct s_stack	*next;
-	ranges			range;
+	t_groups		group;
 }	t_stack;
 
 int		create_and_fill(char **argv, t_stack **stack);

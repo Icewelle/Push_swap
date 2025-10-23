@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:35 by cluby             #+#    #+#             */
-/*   Updated: 2025/10/23 00:32:06 by cluby            ###   ########.fr       */
+/*   Updated: 2025/10/23 23:38:33 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,46 @@
 
 #include <stdio.h>
 
+static void	assign_groups(t_stack **stack, size_t mid_range, size_t max_range)
+{
+	t_stack		*tmp;
+	static int	i = 1;
+	
+	tmp = *stack;
+	while (tmp)
+	{
+		if (tmp->index > max_range)
+		{
+			tmp->group.order = max;
+			tmp->group.group = i + 2;
+		}
+		else if (tmp->index > mid_range)
+		{
+			tmp->group.order = mid;
+			tmp->group.group = i + 1;
+		}
+		else
+		{
+			tmp->group.order = min;
+			tmp->group.group = i;
+		}
+		tmp = tmp->next;
+	}
+	i += 2;
+}
+
 static int	put_range(t_stack **stack)
 {
-	t_stack	*tmp;
-	size_t	max_range;
-	size_t	mid_range;
+	t_stack		*tmp;
+	size_t		max_range;
+	size_t		mid_range;
 
 	tmp = *stack;
 	mid_range = (lst_size(tmp) / 3);
 	max_range = (lst_size(tmp) / 3 * 2);
 	clean_index(stack);
 	put_index(stack);
-	while (tmp)
-	{
-		if (tmp->index > max_range)
-			tmp->range = max;
-		else if (tmp->index > mid_range)
-			tmp->range = mid;
-		else
-			tmp->range = min;
-		tmp = tmp->next;
-	}
+	assign_groups(stack, mid_range, max_range);
 	return (mid_range);
 }
 
@@ -52,14 +71,14 @@ static void	move_groups(t_stack **a, t_stack **b)
 	mid_c = 0;
 	while (min_c != moves || mid_c != moves)
 	{
-		if ((*a)->range == min)
+		if ((*a)->group.order == min)
 		{
 			pa(a, b, "pb\n");
 			if (lst_size((*b)) > 1)
 				ra(b, "rb\n");
 			++min_c;
 		}
-		else if ((*a)->range == mid)
+		else if ((*a)->group.order == mid)
 		{
 			pa(a, b, "pb\n");
 			++mid_c;
@@ -69,23 +88,82 @@ static void	move_groups(t_stack **a, t_stack **b)
 	}
 }
 
-void	big_sort(t_stack **a, t_stack **b)
+static int	elems_in_group(int group, t_stack **stack)
 {
 	t_stack	*tmp;
+	int		elems;
+
+	tmp = *stack;
+	elems = 0;
+	while (tmp)
+	{
+		if (tmp->group.group == group)
+			++elems;
+		tmp = tmp->next;
+	}
+	return (elems);
+}
+
+static size_t	find_max(int group, t_stack **b)
+{
+	t_stack	*tmp;
+	size_t	max;
+
+	tmp = *b;
+	max = 0;
+	while (tmp)
+	{
+		if (tmp->group.group == group && tmp->index > max)
+			max = tmp->index;
+		tmp = tmp->next;
+	}
+	return (max);
+}
+
+void	big_sort(t_stack **a, t_stack **b)
+{
+	int		currentGroup;
+	int		elems;
+	size_t	count;
+	size_t	id;
+	
 
 	while (lst_size((*a)) > 3)
 		move_groups(a, b);
 	little_sort(a, b);
-	tmp = *b;
-/* 	while (tmp)
+	currentGroup = (*a)->group.group;
+	while (currentGroup && (*b))
 	{
-		if (tmp->value > (*a)->value)
+		elems = elems_in_group(currentGroup, b);
+		while (elems && (*b))
 		{
-			pa(b, a, "pa\n");
-			ra(a, "ra\n");
+			count = 0;
+			if (currentGroup == (*b)->group.group)
+			{
+				id = find_max(currentGroup, b);
+				while ((*b)->index != id && (*b)->group.group == currentGroup)
+				{
+					ra(b, "rb\n");
+					++count;
+				}
+				pa(b, a, "pa\n");
+				while (count-- && (*b)->next)
+					rra(b, "rrb\n");
+			}
+			else
+			{
+				if (lst_last(*b)->group.group == currentGroup && (*b)->next)
+					rra(b, "rrb\n");
+				if (lst_last(*b)->group.group == currentGroup && (*b)->next)
+					rra(b, "rrb\n");
+				if ((*b)->next && (*b)->index < (*b)->next->index && (*b)->next->group.group == currentGroup)
+					sa(b, "sb\n");
+				pa(b, a, "pa\n");
+				if ((*a)->index > (*a)->next->index && (*a)->group.group == (*a)->next->group.group)
+					sa(a, "sa\n");
+			}
+			--elems;
 		}
-		else
-			pa(b, a, "pa\n");
-		tmp = tmp->next;
-	}	 */
+		--currentGroup;
+	}
 }

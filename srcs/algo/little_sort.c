@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:33 by cluby             #+#    #+#             */
-/*   Updated: 2025/10/22 23:02:13 by cluby            ###   ########.fr       */
+/*   Updated: 2025/10/23 23:27:09 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ void	sort_five(t_stack **a, t_stack **b)
 	while (i--)
 	{
 		while ((*a)->index != 1 && (*a)->index != 2)
-		{
 			ra(a, "ra\n");
-		}
 		pa(a, b, "pb\n");
 	}
 	sort_three(a);

@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:00 by cluby             #+#    #+#             */
-/*   Updated: 2025/10/22 23:04:53 by cluby            ###   ########.fr       */
+/*   Updated: 2025/10/23 21:27:41 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ t_stack	*create_node(int val)
 		return (err("Error\n"), NULL);
 	new->value = val;
 	new->index = 0;
-	new->range = start;
+	new->group.group = 0;
+	new->group.order = start;
 	new->next = NULL;
 	return (new);
 }
