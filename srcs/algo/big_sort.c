@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:35 by cluby             #+#    #+#             */
-/*   Updated: 2025/10/23 23:38:33 by cluby            ###   ########.fr       */
+/*   Updated: 2025/10/23 23:56:31 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,15 +152,17 @@ void	big_sort(t_stack **a, t_stack **b)
 			}
 			else
 			{
-				if (lst_last(*b)->group.group == currentGroup && (*b)->next)
+				id = find_max(currentGroup, b);
+				if ((*b)->next)
 					rra(b, "rrb\n");
-				if (lst_last(*b)->group.group == currentGroup && (*b)->next)
+				while ((*b)->index != id && (*b)->group.group == currentGroup)
+				{
 					rra(b, "rrb\n");
-				if ((*b)->next && (*b)->index < (*b)->next->index && (*b)->next->group.group == currentGroup)
-					sa(b, "sb\n");
+					++count;
+				}
 				pa(b, a, "pa\n");
-				if ((*a)->index > (*a)->next->index && (*a)->group.group == (*a)->next->group.group)
-					sa(a, "sa\n");
+				while (count-- && (*b)->next)
+					ra(b, "rb\n");
 			}
 			--elems;
 		}
