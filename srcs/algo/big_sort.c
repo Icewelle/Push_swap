@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:35 by cluby             #+#    #+#             */
-/*   Updated: 2025/10/23 23:56:31 by cluby            ###   ########.fr       */
+/*   Updated: 2025/10/28 12:02:23 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,31 +138,34 @@ void	big_sort(t_stack **a, t_stack **b)
 		while (elems && (*b))
 		{
 			count = 0;
+			id = find_max(currentGroup, b);
 			if (currentGroup == (*b)->group.group)
 			{
-				id = find_max(currentGroup, b);
 				while ((*b)->index != id && (*b)->group.group == currentGroup)
 				{
-					ra(b, "rb\n");
-					++count;
+					if ((*b)->index == id - 1)
+						pa(b, a, "pa\n");
+					else
+						ra(b, "rb\n");
 				}
 				pa(b, a, "pa\n");
-				while (count-- && (*b)->next)
-					rra(b, "rrb\n");
+				if ((*a)->group.group == (*a)->next->group.group && (*a)->index == (*a)->next->index + 1)
+					sa(a, "sa\n");
 			}
 			else
 			{
-				id = find_max(currentGroup, b);
 				if ((*b)->next)
 					rra(b, "rrb\n");
 				while ((*b)->index != id && (*b)->group.group == currentGroup)
 				{
-					rra(b, "rrb\n");
-					++count;
+					if ((*b)->index == id - 1)
+						pa(b, a, "pa\n");
+					else
+						rra(b, "rrb\n");
 				}
 				pa(b, a, "pa\n");
-				while (count-- && (*b)->next)
-					ra(b, "rb\n");
+				if ((*a)->group.group == (*a)->next->group.group && (*a)->index == (*a)->next->index + 1)
+					sa(a, "sa\n");
 			}
 			--elems;
 		}
