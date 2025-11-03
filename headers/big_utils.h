@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.h                                       :+:      :+:    :+:   */
+/*   big_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 14:50:44 by cluby             #+#    #+#             */
-/*   Updated: 2025/11/03 14:54:40 by icewell          ###   ########.fr       */
+/*   Created: 2025/11/03 13:54:15 by icewell           #+#    #+#             */
+/*   Updated: 2025/11/03 14:44:04 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_UTILS_H
-# define LIST_UTILS_H
+#ifndef BIG_UTILS_H
+# define BIG_UTILS_H
 
 # include "stack.h"
-# include <limits.h>
 
-void	cheat_index(t_stack **a, size_t cheat);
-void	free_stack(t_stack	*stack);
-size_t	lst_size(t_stack *stack);
-void	free_both(t_stack **a, t_stack **b);
-void	put_index(t_stack **stack);
-void	clean_index(t_stack	**stack);
-t_stack	*lst_last(t_stack *stack);
+int		rr_or_r(t_stack **b, size_t max);
+void	rotate_and_push(t_stack **a, t_stack **b, size_t toPush, int rota);
 
 #endif

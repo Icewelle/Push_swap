@@ -7,6 +7,7 @@ SRCS =	main.c\
 		utils/create_stack.c\
 		utils/list_utils.c\
 		utils/index_utils.c\
+		utils/big_utils.c\
 		commands/command.c\
 		commands/double_command.c\
 		algo/little_sort.c\

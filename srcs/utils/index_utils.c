@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   index_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
+/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 07:05:08 by icewell           #+#    #+#             */
-/*   Updated: 2025/10/23 00:04:30 by cluby            ###   ########.fr       */
+/*   Updated: 2025/11/03 14:54:14 by icewell          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "list_utils.h"
+
+void	cheat_index(t_stack **a, size_t cheat)
+{
+	(*a)->index = cheat + 1;
+	(*a)->next->index = cheat + 2;
+	(*a)->next->next->index = cheat + 3;
+}
 
 void	clean_index(t_stack	**stack)
 {

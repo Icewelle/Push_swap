@@ -11,6 +11,7 @@
 		"tuple": "c",
 		"type_traits": "c",
 		"utility": "c",
-		"little_sort.h": "c"
+		"little_sort.h": "c",
+		"big_utils.h": "c"
 	}
 }
