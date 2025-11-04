@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:35 by cluby             #+#    #+#             */
-/*   Updated: 2025/11/03 14:53:11 by icewell          ###   ########.fr       */
+/*   Updated: 2025/11/04 12:44:46 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	assign_groups(t_stack **stack, size_t mid_range, size_t max_range)
 {
 	t_stack		*tmp;
 	static int	i = 1;
-	
+
 	tmp = *stack;
 	while (tmp)
 	{
@@ -88,7 +88,7 @@ static void	move_groups(t_stack **a, t_stack **b)
 void	big_sort(t_stack **a, t_stack **b)
 {
 	size_t	elems;
-	
+
 	while (lst_size((*a)) > 3)
 		move_groups(a, b);
 	little_sort(a, b);

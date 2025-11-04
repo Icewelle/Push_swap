@@ -1,6 +1,16 @@
-#include "big_utils.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   big_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/04 12:43:17 by cluby             #+#    #+#             */
+/*   Updated: 2025/11/04 12:44:03 by cluby            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
+#include "big_utils.h"
 
 int	rr_or_r(t_stack **b, size_t max)
 {
@@ -12,7 +22,7 @@ int	rr_or_r(t_stack **b, size_t max)
 	while (tmp)
 	{
 		if (tmp->index == max)
-			break;
+			break ;
 		++count;
 		tmp = tmp->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:36:24 by cluby             #+#    #+#             */
-/*   Updated: 2025/10/23 20:54:25 by cluby            ###   ########.fr       */
+/*   Updated: 2025/11/04 12:46:18 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef enum
+typedef enum e_order
 {
 	start,
 	min,
 	mid,
 	max
-} order;
+}	t_order;
 
 typedef struct s_groups
 {
 	int		group;
-	order	order;
+	t_order	order;
 }	t_groups;
 
 typedef struct s_stack

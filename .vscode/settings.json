@@ -12,6 +12,7 @@
 		"type_traits": "c",
 		"utility": "c",
 		"little_sort.h": "c",
-		"big_utils.h": "c"
+		"big_utils.h": "c",
+		"stdio.h": "c"
 	}
 }

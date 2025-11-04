@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 07:05:08 by icewell           #+#    #+#             */
-/*   Updated: 2025/11/03 14:54:14 by icewell          ###   ########.fr       */
+/*   Updated: 2025/11/04 12:44:15 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 void	cheat_index(t_stack **a, size_t cheat)
 {
 	(*a)->index = cheat + 1;
-	(*a)->next->index = cheat + 2;
-	(*a)->next->next->index = cheat + 3;
+	if ((*a)->next)
+		(*a)->next->index = cheat + 2;
+	if ((*a)->next->next)
+		(*a)->next->next->index = cheat + 3;
 }
 
 void	clean_index(t_stack	**stack)
