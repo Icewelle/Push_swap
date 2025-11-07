@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:27:49 by cluby             #+#    #+#             */
-/*   Updated: 2025/05/12 14:46:14 by cluby            ###   ########.fr       */
+/*   Updated: 2025/11/07 12:30:54 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ typedef struct s_varatoi
 	int	number;
 	int	is_negative;
 	int	digit;
+	int	error;
 }	t_varatoi;
 
-int	err(char *str);
-int	ft_atoi(const char *str);
+int			err(char *str);
+t_varatoi	ft_atoi(const char *str);
 
 #endif

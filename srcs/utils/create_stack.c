@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:36:00 by cluby             #+#    #+#             */
-/*   Updated: 2025/10/23 21:27:41 by cluby            ###   ########.fr       */
+/*   Updated: 2025/11/07 12:31:49 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	create_and_fill(char **argv, t_stack **stack)
 	++argv;
 	while (*argv)
 	{
-		if (insert_end(ft_atoi(*argv), stack))
+		if (insert_end(ft_atoi(*argv).number, stack))
 		{
 			free_stack(*stack);
 			return (1);

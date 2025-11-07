@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icewell <icewell@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 11:00:57 by cluby             #+#    #+#             */
-/*   Updated: 2025/07/31 11:20:45 by icewell          ###   ########.fr       */
+/*   Updated: 2025/11/07 12:34:54 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ static void	init_vars(t_varatoi *vars)
 	vars->i = 0;
 	vars->is_negative = 1;
 	vars->number = 0;
+	vars->error = 0;
 }
 
-int	ft_atoi(const char *str)
+t_varatoi	ft_atoi(const char *str)
 {
 	t_varatoi	vars;
 
@@ -45,12 +46,12 @@ int	ft_atoi(const char *str)
 		vars.digit = str[vars.i] - 48;
 		if (vars.is_negative == 1 && (vars.number > (INT_MAX - vars.digit) \
 		/ 10))
-			return (INT_MAX);
+			return (vars.error = -1, vars);
 		if (vars.is_negative == -1 && (-vars.number < (INT_MIN + vars.digit) \
 		/ 10))
-			return (INT_MIN);
+			return (vars.error = -1, vars);
 		vars.number = vars.number * 10 + (str[vars.i] - 48);
 		vars.i++;
 	}
-	return (vars.number * vars.is_negative);
+	return (vars.number *= vars.is_negative, vars);
 }

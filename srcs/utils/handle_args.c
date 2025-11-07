@@ -6,11 +6,13 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:39:19 by cluby             #+#    #+#             */
-/*   Updated: 2025/10/22 23:05:45 by cluby            ###   ########.fr       */
+/*   Updated: 2025/11/07 12:48:19 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "handle_args.h"
+
+#include <stdio.h>
 
 static int	ft_is_number(char *str)
 {
@@ -43,7 +45,8 @@ static int	ft_is_double(char **str)
 		i = 1;
 		while (str[i])
 		{
-			if (ft_atoi(str[i]) == ft_atoi(*str))
+			if (ft_atoi(str[i]).number == ft_atoi(*str).number \
+			|| ft_atoi(str[i]).error == -1)
 				return (1);
 			++i;
 		}
@@ -52,11 +55,27 @@ static int	ft_is_double(char **str)
 	return (0);
 }
 
+int	is_sorted(char **str)
+{
+	int	isorted;
+	int	i;
+
+	isorted = 1;
+	i = 0;
+	while (str[i])
+	{
+		if (str[i + 1] && ft_atoi(str[i]).number > ft_atoi(str[i + 1]).number)
+			isorted = 0;
+		++i;
+	}
+	return (isorted);
+}
+
 int	handle_args(int argc, char **argv)
 {
 	char	**clone;
 
-	if (argc < 2)
+	if (argc < 3)
 		return (1);
 	argv++;
 	clone = argv;
@@ -68,5 +87,7 @@ int	handle_args(int argc, char **argv)
 	}
 	if (ft_is_double(clone))
 		return (err("Error\n"));
+	if (is_sorted(clone))
+		return (1);
 	return (0);
 }
