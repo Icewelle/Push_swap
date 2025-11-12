@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:39:19 by cluby             #+#    #+#             */
-/*   Updated: 2025/11/07 12:48:19 by cluby            ###   ########.fr       */
+/*   Updated: 2025/11/12 12:06:54 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	ft_is_double(char **str)
 		while (str[i])
 		{
 			if (ft_atoi(str[i]).number == ft_atoi(*str).number \
-			|| ft_atoi(str[i]).error == -1)
+			|| ft_atoi(str[i]).error == -1 || ft_atoi(*str).error == -1)
 				return (1);
 			++i;
 		}
