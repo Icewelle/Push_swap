@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 10:39:19 by cluby             #+#    #+#             */
-/*   Updated: 2025/11/12 12:06:54 by cluby            ###   ########.fr       */
+/*   Updated: 2025/11/14 14:23:49 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,11 @@ int	handle_args(int argc, char **argv)
 	char	**clone;
 
 	if (argc < 3)
+	{
+		if (argc == 2 && ft_is_valid(argv[1]))
+			err("Error\n");
 		return (1);
+	}
 	argv++;
 	clone = argv;
 	while (*argv)
